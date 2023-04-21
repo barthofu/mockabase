@@ -1,0 +1,37 @@
+{
+  "name": "mockabase",
+  "version": "1.0.0",
+  "description": "A tool to generate mock data for databases in an intelligent way",
+  "main": "build/main/index.js",
+  "typings": "build/main/index.d.ts",
+  "module": "build/module/index.js",
+  "repository": "https://github.com/barthofu/mockabase",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "build": "npm run build:clean && npm run build:compile && npm run type:check",
+    "build:compile": "swc src -d build",
+    "build:clean": "rimraf build/",
+    "start": "cross-env NODE_ENV=development node build/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --exec node -r @swc-node/register src/index.ts",
+    "type:check": "tsc --pretty --skipLibCheck --noEmit"
+  },
+  "devDependencies": {
+    "@swc-node/register": "^1.6.4",
+    "@types/node": "^18.15.13",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "rimraf": "^5.0.0",
+    "swc": "^1.0.11",
+    "typescript": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "i": "^0.3.7",
+    "npm": "^9.6.5",
+    "pg-structure": "^7.14.0"
+  }
+}
